@@ -6,14 +6,13 @@ from services import api_service
 
 router = APIRouter(prefix="/api/live", tags=["live"])
 
-MEDIAMTX_HOST = os.getenv("MEDIAMTX_HOST", "localhost")
-MEDIAMTX_WHEP_PORT = os.getenv("MEDIAMTX_WHEP_PORT", "8889")
+NGINX_BASE_URL = os.getenv("NGINX_BASE_URL", "http://vision.local")
 MEDIAMTX_STREAM_NAME = os.getenv("MEDIAMTX_STREAM_NAME", "live")
 
 
 @router.get("/stream")
 def get_live_stream_config():
-    whep_url = f"http://{MEDIAMTX_HOST}:{MEDIAMTX_WHEP_PORT}/{MEDIAMTX_STREAM_NAME}/whep"
+    whep_url = f"{NGINX_BASE_URL}/whep/{MEDIAMTX_STREAM_NAME}"
     return {"whepUrl": whep_url, "streamId": MEDIAMTX_STREAM_NAME}
 
 
