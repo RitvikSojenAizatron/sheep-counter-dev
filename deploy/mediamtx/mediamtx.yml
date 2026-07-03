@@ -1,0 +1,31 @@
+# MediaMTX configuration for Sheep Counter
+#
+# Stream flow:
+#   Pipeline (aiortc) --WHIP--> MediaMTX :8889/live/whip
+#   Browser           <--WHEP-- MediaMTX :8889/live/whep
+
+# ── WebRTC / WHIP / WHEP ──────────────────────────────────────────────────────
+webrtc: true
+webrtcAddress: :8889
+
+# Dedicated UDP port for ICE — avoids ephemeral port churn and is more reliable
+# behind firewalls than letting the OS assign a random port each session.
+webrtcLocalUDPAddress: :8189
+
+# ICE candidates are sourced from all local network interfaces.
+# Set webrtcIPsFromInterfaces to false and fill webrtcAdditionalHosts
+# if behind NAT or if the wrong interface IP is advertised.
+webrtcIPsFromInterfaces: true
+webrtcAdditionalHosts: []
+
+# ── Logging ───────────────────────────────────────────────────────────────────
+logLevel: info
+logDestinations: [stdout]
+
+# ── Paths ─────────────────────────────────────────────────────────────────────
+paths:
+  live:
+    # Pipeline publishes here via WHIP; browser subscribes via WHEP.
+    # overridePublisher lets a reconnecting pipeline replace a stale session
+    # without needing to wait for the old WHIP connection to time out.
+    overridePublisher: true

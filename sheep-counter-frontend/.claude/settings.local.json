@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pkill -f \"vite\")",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:5173)",
+      "Skill(run)",
+      "Bash(npx playwright *)",
+      "Bash(node *)",
+      "Bash(./node_modules/.bin/tsc *)",
+      "Bash(npx tsc *)",
+      "Bash(npx vite *)",
+      "Bash(npx esbuild *)"
+    ]
+  }
+}

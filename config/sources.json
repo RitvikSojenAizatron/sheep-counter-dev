@@ -1,0 +1,40 @@
+{
+  "updated_at": 1782988084.8150961,
+  "sources": [
+    {
+      "id": "src-test-aerial-sheep",
+      "name": "Aerial Sheep Test",
+      "updated_at": 0.0,
+      "attributes": {
+        "ip_address": "rtsp://127.0.0.1:8556/stream",
+        "source_type": "RTSP",
+        "active": true,
+        "description": "aerial_sheep.mp4 served directly via GstRtspServer",
+        "captured_at": 0.0,
+        "resolution_width": 848,
+        "resolution_height": 478,
+        "line_dict": {
+          "line-30ebbd66-aeff-4b43-b571-3dd3461b3475": {
+            "name": "test",
+            "point_list": [
+              [
+                0.28030799475753604,
+                0.7483835682800213
+              ],
+              [
+                0.5737221494102228,
+                0.4010703310585272
+              ]
+            ],
+            "crossing_direction": [
+              [
+                0.763891750746183,
+                0.645344398861516
+              ]
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
